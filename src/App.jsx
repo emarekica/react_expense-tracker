@@ -1,6 +1,8 @@
 function App() {
-  return(
-    <div>Let's count some money!</div>
+  return (
+    <>
+      <h1>Show me the money!</h1>
+    </>
   );
 }
 
