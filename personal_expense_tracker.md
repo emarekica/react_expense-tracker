@@ -126,3 +126,8 @@ MUTED
     #A6A39F - light gray brown
     #8C837B - light brown
     #595551 - dark brown
+
+---
+
+Current visual:
+![current_visual](/assets/current_visual.png)
