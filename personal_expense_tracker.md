@@ -108,5 +108,21 @@ Concepts: managing state, outputting data list dynamically, reacting to events
 - Add a new expense immutably
 - Observe automatic UI updates
 
+---
+
+## COLOR THEMES
+
+    #8C8C8C - dark gray
+    #BFBFBD - light gray
+    #F2F2F2 - dirty white
+    #404040 - dark brown
+    #736A63 - light brown
 
 
+MUTED
+
+    #F2F1F0 - dirty white
+    #BFBFBD - dirty light gray
+    #A6A39F - light gray brown
+    #8C837B - light brown
+    #595551 - dark brown

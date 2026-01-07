@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap");
 
 body {
   font-family: "Alegreya Sans", sans-serif;
-  font-size: 1.2rem;
   line-height: 1.5;
   background: no-repeat url("../assets/background.jpg") center center;
   background-size: cover;
@@ -11,16 +10,60 @@ body {
   padding: 3em;
 }
 
+* {
+  border-radius: 10px;
+}
+
 #root {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+h3, button {
+  text-transform: uppercase;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 500;
+}
+
 ul {
   list-style: none;
+  padding: 0;
 }
 
 .expense-item {
-  display: flex;
+  background-color: rgba(89, 85, 81, 0.2);
+  padding: 1em;
+  min-width: 40vw;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    span:last-child {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+  }
 }
+
+.expense-item:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.expense-item:last-child {
+  margin-bottom: 2em;
+}
+
+/* TO DO: add hover and active */
+button {
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: rgba(64, 61, 59, 0.6);
+  color: rgb(242, 241, 240);
+}
+
+
+/* TO DO: Adjust responsive for mobile and desktop */
