@@ -1,3 +1,5 @@
+import Card from "./components/Card.jsx";
+
 function App() {
   return (
     <>
@@ -5,7 +7,7 @@ function App() {
         <h2>Add random expense</h2>
         <button>+</button>
       </header>
-      <ul>
+      <Card>
         <li className="expense-item">
           <div>
             <span>Book</span>
@@ -27,7 +29,7 @@ function App() {
           </div>
           <span>08.01.2026.</span>
         </li>
-      </ul>
+      </Card>
     </>
   );
 }
