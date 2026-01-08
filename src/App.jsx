@@ -1,7 +1,10 @@
 function App() {
   return (
     <>
-      <h3>Random expenses tracker</h3>
+      <header>
+        <h2>Add random expense</h2>
+        <button>+</button>
+      </header>
       <ul>
         <li className="expense-item">
           <div>
@@ -25,7 +28,6 @@ function App() {
           <span>08.01.2026.</span>
         </li>
       </ul>
-      <button>Add random expense</button>
     </>
   );
 }

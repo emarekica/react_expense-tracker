@@ -7,7 +7,7 @@ body {
   background-size: cover;
   height: 90dvh;
   margin: 0;
-  padding: 3em;
+  padding: 2em;
 }
 
 * {
@@ -15,15 +15,45 @@ body {
 }
 
 #root {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h3, button {
-  text-transform: uppercase;
-  font-family: "Alegreya Sans SC", sans-serif;
-  font-weight: 500;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  h2,
+  button {
+    text-transform: uppercase;
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-weight: 500;
+  }
+
+  /* TO DO: add hover and active */
+  button {
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgb(242, 241, 240);
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(64, 61, 59, 0.6);
+    margin-left: 10px;
+  }
+
+  button:hover {
+    background-color: rgba(89, 85, 81, 0.6);
+  }
+
+  button:active {
+    background-color: rgba(89, 85, 81, 0.4);
+  }
 }
 
 ul {
@@ -34,7 +64,6 @@ ul {
 .expense-item {
   background-color: rgba(89, 85, 81, 0.2);
   padding: 1em;
-  min-width: 40vw;
 
   div {
     display: flex;
@@ -51,19 +80,17 @@ ul {
   margin-bottom: 1em;
 }
 
-.expense-item:last-child {
-  margin-bottom: 2em;
-}
-
-/* TO DO: add hover and active */
-button {
-  border: none;
-  padding: 0.5em 1em;
-  font-size: 1rem;
-  font-weight: 400;
-  background-color: rgba(64, 61, 59, 0.6);
-  color: rgb(242, 241, 240);
-}
-
-
 /* TO DO: Adjust responsive for mobile and desktop */
+@media (min-width: 768px) {
+  body {
+    padding-inline: 6em;
+    font-size: 1.3rem;
+    height: 70dvh;
+  }
+
+  header button {
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+  }
+}
