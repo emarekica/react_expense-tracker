@@ -1,4 +1,5 @@
 import Card from "./components/Card.jsx";
+import ExpenseItem from "./components/ExpenseItem.jsx";
 
 function App() {
   return (
@@ -8,27 +9,18 @@ function App() {
         <button>+</button>
       </header>
       <Card>
-        <li className="expense-item">
-          <div>
-            <span>Book</span>
-            <span>€15</span>
-          </div>
-          <span>02.01.2026.</span>
-        </li>
-        <li className="expense-item">
-          <div>
-            <span>Pencil</span>
-            <span>€5</span>
-          </div>
-          <span>04.01.2026.</span>
-        </li>
-        <li className="expense-item">
-          <div>
-            <span>Notebook</span>
-            <span>€10</span>
-          </div>
-          <span>08.01.2026.</span>
-        </li>
+        <ExpenseItem
+          item="Book"
+          price="€15"
+          date="02.01.2026."/>
+        <ExpenseItem
+          item="Pencil"
+          price="€5"
+          date="04.01.2026."/>
+        <ExpenseItem
+          item="Notebook"
+          price="€10"
+          date="08.01.2026."/>
       </Card>
     </>
   );

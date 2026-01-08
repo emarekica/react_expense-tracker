@@ -38,21 +38,21 @@ Concepts: Components, JSX
 - Serve as the root component
 - Render the page title and container layout
 
-#### Step 2: Create a Reusable Card Component
+#### Step 2: Create a Reusable Card Component ✔
 
 Concepts: Components, props, _children_ prop
 
 - Wrap content with consistent styling
 - Accept content via children
 
-####  Step 3: Create an ExpenseItem Component
+####  Step 3: Create an ExpenseItem Component ✔
 
 Concepts: Components, JSX, props
 
 - Display a single expense
 - Receive title, amount, and date via props
 
-### Step 4: Render Multiple ExpenseItems Manually
+### Step 4: Render Multiple ExpenseItems Manually ✔
 
 Concepts: JSX, Using and outputting dynamic values
 
