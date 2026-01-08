@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap");
 
 body {
+  --box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8);
+  --inset-box-shadow: inset 0px 0px 20px 3px rgba(149, 147, 143, 0.94);
+  --btn-size: 40px;
+  --btn-font: 30px;
+  --btn-background: rgba(64, 61, 59, 0.6);
+  --btn-hover: rgba(89, 85, 81, 0.6);
+  --btn-active: rgba(89, 85, 81, 0.4);
+
   font-family: "Alegreya Sans", sans-serif;
   line-height: 1.5;
-  background: no-repeat url("../assets/background.jpg") center center;
+  background: no-repeat url("assets/background.jpg") center center;
   background-size: cover;
   height: 100dvh;
   margin: 0;
@@ -30,27 +38,26 @@ header {
     font-weight: 500;
   }
 
-  /* TO DO: add hover and active */
   button {
-    height: 40px;
-    width: 40px;
-    font-size: 30px;
+    height: var(--btn-size);
+    width: var(--btn-size);
+    font-size: var(--btn-font);
     font-weight: 400;
     color: rgb(242, 241, 240);
     border: none;
     border-radius: 50%;
-    background-color: rgba(64, 61, 59, 0.6);
-    -webkit-box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8);
-    box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8);
+    background-color: var(--btn-background);
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
     margin-left: 10px;
   }
 
   button:hover {
-    background-color: rgba(89, 85, 81, 0.6);
+    background-color: var(--btn-hover);
   }
 
   button:active {
-    background-color: rgba(89, 85, 81, 0.4);
+    background-color: var(--btn-active);
   }
 }
 
@@ -64,10 +71,12 @@ ul {
   background-color: rgba(89, 85, 81, 0.2);
   padding: 1em;
   border-radius: 10px;
-  -webkit-box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8),
-    inset 0px 0px 20px 3px rgba(149, 147, 143, 0.94);
-  box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8),
-    inset 0px 0px 20px 3px rgba(149, 147, 143, 0.94);
+  -webkit-box-shadow:
+    var(--box-shadow),
+    var(--inset-box-shadow);
+  box-shadow:
+    var(--box-shadow),
+    var(--inset-box-shadow);
 
   div {
     display: flex;
@@ -84,7 +93,6 @@ ul {
   margin-bottom: 1em;
 }
 
-/* TO DO: Adjust responsive for mobile and desktop */
 @media (min-width: 768px) {
   body {
     padding-inline: 6em;
@@ -93,9 +101,8 @@ ul {
   }
 
   header button {
-    height: 50px;
-    width: 50px;
-    font-size: 40px;
+    --btn-size: 50px;
+    --btn-font: 40px;
   }
 
   ul {
