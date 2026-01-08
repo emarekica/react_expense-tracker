@@ -5,13 +5,9 @@ body {
   line-height: 1.5;
   background: no-repeat url("../assets/background.jpg") center center;
   background-size: cover;
-  height: 90dvh;
+  height: 100dvh;
   margin: 0;
   padding: 2em;
-}
-
-* {
-  border-radius: 10px;
 }
 
 #root {
@@ -44,6 +40,8 @@ header {
     border: none;
     border-radius: 50%;
     background-color: rgba(64, 61, 59, 0.6);
+    -webkit-box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8);
+    box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8);
     margin-left: 10px;
   }
 
@@ -59,11 +57,17 @@ header {
 ul {
   list-style: none;
   padding: 0;
+  width: 280px;
 }
 
 .expense-item {
   background-color: rgba(89, 85, 81, 0.2);
   padding: 1em;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8),
+    inset 0px 0px 20px 3px rgba(149, 147, 143, 0.94);
+  box-shadow: 3px 0px 7px -3px rgba(89, 85, 81, 0.8),
+    inset 0px 0px 20px 3px rgba(149, 147, 143, 0.94);
 
   div {
     display: flex;
@@ -92,5 +96,9 @@ ul {
     height: 50px;
     width: 50px;
     font-size: 40px;
+  }
+
+  ul {
+    width: 350px;
   }
 }
