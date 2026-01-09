@@ -115,11 +115,18 @@ Concepts: managing state, useState
 
 - Allow React to re-render when data changes
 
+<br>
+
 ❗️ Don't leave the initial state empty, make it an empty array:
 
       const [expenses, setExpenses]= useState([]);
 
 
+✅ Create new date and extract only the date as a string:
+
+    new Date().toLocaleDateString();
+
+<br>
 
 #### Step 9: Add an “Add Expense” Button ✔
 

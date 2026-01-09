@@ -11,7 +11,7 @@ function App() {
   const randomExpense = {
     getRandomItem: () => items[Math.floor(Math.random() * items.length)],
     getAmount: () => Math.floor(Math.random() * 100) + 1,
-    getDate: () => Date.now(),
+    getDate: () => new Date().toLocaleDateString(),
   }
 
   function getRandomExpense() {
