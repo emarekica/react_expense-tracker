@@ -29,7 +29,7 @@ Optional for later: conditional rendering
 
 ## Steps
 
-### Phase 1 — Static UI & Component Structure
+### Phase 1 — Static UI & Component Structure ✅
 
 Concepts: Components, JSX
 
@@ -63,12 +63,34 @@ Concepts: JSX, Using and outputting dynamic values
 
 ### Phase 2 — Dynamic Rendering
 
-#### Step 5: Store Expenses in an Array
+#### Step 5: Store Expenses in an Object ✔
 
 Concepts: Using and outputting dynamic values
 
 - Represent expenses as data
 - Prepare for list rendering
+
+      ✅ Store the data in `App.jsx` (for demonstration) or in a separate file (i.e. `Data.jsx` in real projects).
+      ❌ Do not store the data in `ExpenseItem` because a component should not manage data it represents.
+
+      This matches React’s top-down data flow:
+      - `App.jsx` owns the list
+      - child components only consume data
+
+<br>
+
+If you want a new value every time → it must be a function.
+
+```javascript
+
+  const randomExpense = {
+    getRandomItem: () => items[Math.floor(Math.random() * items.length)],
+    getAmount: () => Math.floor(Math.random() * 100) + 1,
+    getDate: () => Date.now(),
+  }
+```
+
+<br>
 
 #### Step 6: Render Expenses Using .map()
 
@@ -77,7 +99,7 @@ Concepts: outputting data list dynamically, props, JSX
 - Replace repeated JSX with data-driven rendering
 - Introduce key concept naturally
 
-#### Step 7: Use Fragments Where Appropriate
+#### Step 7: Use Fragments Where Appropriate ✔
 
 Concepts: using fragments
 
@@ -112,20 +134,22 @@ Concepts: managing state, outputting data list dynamically, reacting to events
 
 ## COLOR THEMES
 
-    #8C8C8C - dark gray
-    #BFBFBD - light gray
-    #F2F2F2 - dirty white
-    #404040 - dark brown
-    #736A63 - light brown
+![color_themes](/src/assets/tracker_color_themes.png)
+
+    #8C8C8C
+    #BFBFBD
+    #F2F2F2
+    #404040
+    #736A63
 
 
 MUTED
 
-    #F2F1F0 - dirty white
-    #BFBFBD - dirty light gray
-    #A6A39F - light gray brown
-    #8C837B - light brown
-    #595551 - dark brown
+    #F2F1F0
+    #BFBFBD
+    #A6A39F
+    #8C837B
+    #595551
 
 
 ## Current visual:

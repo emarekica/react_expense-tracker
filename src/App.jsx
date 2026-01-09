@@ -2,6 +2,24 @@ import Card from "./components/Card.jsx";
 import ExpenseItem from "./components/ExpenseItem.jsx";
 
 function App() {
+  const items = ["Book", "Notebook", "Pen", "Color pencil", "Eraser", "Bookmark", "Marker", "Ruler"];
+
+  const randomExpense = {
+    getRandomItem: () => items[Math.floor(Math.random() * items.length)],
+    getAmount: () => Math.floor(Math.random() * 100) + 1,
+    getDate: () => Date.now(),
+  }
+
+  function getRandomExpense() {
+    const expense = {
+      item: randomExpense.getRandomItem(),
+      price: randomExpense.getAmount(),
+      date: randomExpense.getDate(),
+    }
+    return expense;
+  };
+
+
   return (
     <>
       <header>
