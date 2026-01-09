@@ -1,7 +1,11 @@
+import { useState } from "react";
+
 import Card from "./components/Card.jsx";
 import ExpenseItem from "./components/ExpenseItem.jsx";
 
 function App() {
+  const [expenses, setExpenses]= useState([]);
+
   const items = ["Book", "Notebook", "Pen", "Color pencil", "Eraser", "Bookmark", "Marker", "Ruler"];
 
   const randomExpense = {
@@ -11,12 +15,13 @@ function App() {
   }
 
   function getRandomExpense() {
-    const expense = {
+    const newExpense = {
       item: randomExpense.getRandomItem(),
       price: randomExpense.getAmount(),
       date: randomExpense.getDate(),
     }
-    return expense;
+
+    setExpenses(prevExpenses => [newExpense, ...prevExpenses]);
   };
 
 
@@ -24,21 +29,17 @@ function App() {
     <>
       <header>
         <h2>Add random expense</h2>
-        <button>+</button>
+        <button onClick={getRandomExpense}>+</button>
       </header>
       <Card>
-        <ExpenseItem
-          item="Book"
-          price="€15"
-          date="02.01.2026."/>
-        <ExpenseItem
-          item="Pencil"
-          price="€5"
-          date="04.01.2026."/>
-        <ExpenseItem
-          item="Notebook"
-          price="€10"
-          date="08.01.2026."/>
+        {expenses.map((expense, index) => (
+              <ExpenseItem key={index}
+                item={expense.item}
+                price={expense.price}
+                date={expense.date}/>
+            )
+          )
+        }
       </Card>
     </>
   );

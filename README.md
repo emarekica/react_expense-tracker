@@ -97,7 +97,6 @@ If you want a new value every time → it must be a function.
 Concepts: outputting data list dynamically, props, JSX
 
 - Replace repeated JSX with data-driven rendering
-- Introduce key concept naturally
 
 #### Step 7: Use Fragments Where Appropriate ✔
 
@@ -110,20 +109,26 @@ Concepts: using fragments
 
 ### Phase 3 — Interactivity & State
 
-#### Step 8: Move Expenses into Component State
+#### Step 8: Move Expenses into Component State ✔
 
 Concepts: managing state, useState
 
 - Allow React to re-render when data changes
 
-#### Step 9: Add an “Add Expense” Button
+❗️ Don't leave the initial state empty, make it an empty array:
+
+      const [expenses, setExpenses]= useState([]);
+
+
+
+#### Step 9: Add an “Add Expense” Button ✔
 
 Concepts: reacting to events, managing state
 
 - Attach an event handler
 - Trigger state updates on user interaction
 
-#### Step 10: Update Expense List via State
+#### Step 10: Update Expense List via State ✔
 
 Concepts: managing state, outputting data list dynamically, reacting to events
 
