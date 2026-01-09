@@ -65,6 +65,11 @@ ul {
   list-style: none;
   padding: 0;
   width: 280px;
+  background-color: rgba(140, 140, 140, 0.4);
+  height: 370px;
+  border-radius: 10px;
+  padding: 2em;
+  overflow: auto;
 }
 
 .expense-item {
@@ -107,5 +112,6 @@ ul {
 
   ul {
     width: 350px;
+    height: 320px;
   }
 }
