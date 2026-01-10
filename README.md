@@ -2,18 +2,18 @@
 
 A full-stack learning project built to practice modern frontend and backend concepts.
 
-◻️ The frontend is developed with React, focusing on component-based UI, state management, and dynamic rendering.
+The frontend is developed with React, focusing on component-based UI, state management, and dynamic rendering.
 
-◼️ The backend is implemented using PHP with a MySQL database, providing a simple REST-style API for persisting and retrieving expense data.
+The backend will be implemented using PHP with a MySQL database, providing a simple REST-style API for persisting and retrieving expense data.
 
-🏗️ The project is developed incrementally in phases, with features added as new concepts are learned on both the frontend and backend.
+The project is developed incrementally in phases, with features added as new concepts are learned on both the frontend and backend.
+
+## Content
 
 1. [Phase 1](#phase-1)
 2. [Phase 2](#phase-2)
-
-
-10. [Color themes](#color-themes)
-11. [Current visual](#current-visual)
+3. [Color themes](#color-themes)
+4. [Current visual](#current-visual)
 
 <br>
 
@@ -36,16 +36,17 @@ React concepts covered in this phase:
 ---
 <br>
 
-At Phase 1, this is a Random expense tracker.
+In Phase 1, the app functions as a random expense generator.
 
-It only displays a list of random expenses added with the "Add expense" button.
+Expenses are generated programmatically and added via an “Add expense” button.
+
 
 - lists expenses (amount, title, date)
 - adds a new expense with a button click ("Add expense") and instantly updates the list
 
 Optional for later: conditional rendering
 
-### Static UI & Component Structure ✅
+### Static UI & Component Structure ✔
 
 Concepts: Components, JSX
 
@@ -68,7 +69,7 @@ Concepts: Components, JSX, props
 - Display a single expense
 - Receive title, amount, and date via props
 
-### Step 4: Render Multiple ExpenseItems Manually ✔
+#### Step 4: Render Multiple ExpenseItems Manually ✔
 
 Concepts: JSX, Using and outputting dynamic values
 
@@ -77,23 +78,28 @@ Concepts: JSX, Using and outputting dynamic values
 
 ---
 
-### Dynamic Rendering
+### Dynamic Rendering ✔
 
-#### Step 5: Store Expenses in an Object ✔
+#### Step 5: Store Expenses as data object ✔
 
 Concepts: Using and outputting dynamic values
 
 - Represent expenses as data
 - Prepare for list rendering
 
-      ✅ Store the data in `App.jsx` (for demonstration) or in a separate file (i.e. `Data.jsx` in real projects).
-      ❌ Do not store the data in `ExpenseItem` because a component should not manage data it represents.
+✅ **Learned:**
 
-      This matches React’s top-down data flow:
-      - `App.jsx` owns the list
-      - child components only consume data
+  🟩 Store the data in `App.jsx` (for demonstration) or in a separate file (i.e. `Data.jsx` in real projects).
+
+  ❌ Do not store the data in `ExpenseItem` because a component should not manage data it represents.
+
+  This matches React’s top-down data flow:
+  - `App.jsx` owns the list
+  - child components only consume data
 
 <br>
+
+✅ **Learned:**
 
 If you want a new value every time → it must be a function.
 
@@ -102,19 +108,19 @@ If you want a new value every time → it must be a function.
   const randomExpense = {
     getRandomItem: () => items[Math.floor(Math.random() * items.length)],
     getAmount: () => Math.floor(Math.random() * 100) + 1,
-    getDate: () => Date.now(),
+    getDate: () => new Date(),
   }
 ```
 
 <br>
 
-#### Step 6: Render Expenses Using .map()
+#### Step 6: Render expenses using .map()
 
 Concepts: outputting data list dynamically, props, JSX
 
 - Replace repeated JSX with data-driven rendering
 
-#### Step 7: Use Fragments Where Appropriate ✔
+#### Step 7: Use fragments where appropriate ✔
 
 Concepts: using fragments
 
@@ -123,7 +129,7 @@ Concepts: using fragments
 
 ---
 
-### Interactivity & State
+### Interactivity & State ✔
 
 #### Step 8: Move Expenses into Component State ✔
 
@@ -133,12 +139,14 @@ Concepts: managing state, useState
 
 <br>
 
+✅ **Learned:**
+
 ❗️ Don't leave the initial state empty, make it an empty array:
 
       const [expenses, setExpenses]= useState([]);
 
 
-✅ Create new date and extract only the date as a string:
+🟩 Create new date and extract only the date as a string:
 
     new Date().toLocaleDateString();
 
@@ -164,6 +172,82 @@ Concepts: managing state, outputting data list dynamically, reacting to events
 
 ## Phase 2
 
+The goal of this phase is to cover:
+
+- Dynamic data creation
+- Derived values (total, sorted list)
+- Clean component boundaries
+- Predictable state flow
+
+The app will also be architecturally ready for `useEffect`, `fetch` and backend data replacement.
+
+<br>
+
+#### Step 1 — Add a Total Expenses Summary
+
+Concepts: Using and outputting dynamic values, array methods (`reduce()`), React re-rendering on state change
+
+Display the sum of all expense prices.
+
+- Compute the total amount from the expenses array
+- Display it above the list
+
+✅ **Learned:**
+
+- Do not store the total in state >> derive it from expenses during render
+
+#### Step 2 - Format the Date in ExpenseItem
+
+Make dates human-readable.
+
+Concepts: Separation of concerns
+
+- Convert the Date object into a readable format
+- Keep formatting logic inside ExpenseItem
+- Use `toLocaleDateString`
+- Do not modify the stored data
+
+#### Step 3 - Conditional Styling Based on Price
+
+Goal: Visually distinguish expensive items.
+
+Concepts: Conditional rendering, dynamic `className`
+
+- If `price > X` (e.g. 50), style the item differently
+- Use a ternary operator
+- Keep logic small and readable
+
+#### Step 4 - Empty State Handling
+
+Handle the case where no expenses exist.
+
+Concepts: Conditional rendering, logical operators in JSX
+
+- Show a message when `expenses.length === 0`
+- Hide the list when empty
+- Do not wrap everything in if statements
+- JSX conditions should stay readable
+
+#### Step 5 - Sort Expenses by Date
+
+Goal: Control the order of displayed items.
+
+Concepts: Immutability, array copying, derived data vs stored state
+
+- Sort expenses by date (newest first)
+- Do not mutate state directly
+- Copy before sorting
+- Sorting should happen at render time
+
+#### Step 6 - Add a Simple Filter
+
+Goal: Filter displayed expenses by price range
+
+Concepts: Derived data, state-driven UI, mapping filtered arrays
+
+- Add a toggle or simple condition (e.g. “Show only expensive”)
+- Filtering should not permanently remove data
+- Do not mutate expenses
 
 
 ## Color themes
