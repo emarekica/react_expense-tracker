@@ -1,6 +1,25 @@
-# Personal expense tracker
+# Expense tracker
 
-An entry level React project that covers:
+A full-stack learning project built to practice modern frontend and backend concepts.
+
+◻️ The frontend is developed with React, focusing on component-based UI, state management, and dynamic rendering.
+
+◼️ The backend is implemented using PHP with a MySQL database, providing a simple REST-style API for persisting and retrieving expense data.
+
+🏗️ The project is developed incrementally in phases, with features added as new concepts are learned on both the frontend and backend.
+
+1. [Phase 1](#phase-1)
+2. [Phase 2](#phase-2)
+
+
+10. [Color themes](#color-themes)
+11. [Current visual](#current-visual)
+
+<br>
+
+## Phase 1
+
+React concepts covered in this phase:
 
 | Concept         | How it is used                              |
 | --------------- | ------------------------------------------- |
@@ -15,10 +34,9 @@ An entry level React project that covers:
 | Fragments       | Avoid unnecessary wrapper elements          |
 
 ---
+<br>
 
-## App overview
-
-At this phase, this is a Random expense tracker.
+At Phase 1, this is a Random expense tracker.
 
 It only displays a list of random expenses added with the "Add expense" button.
 
@@ -27,9 +45,7 @@ It only displays a list of random expenses added with the "Add expense" button.
 
 Optional for later: conditional rendering
 
-## Steps
-
-### Phase 1 — Static UI & Component Structure ✅
+### Static UI & Component Structure ✅
 
 Concepts: Components, JSX
 
@@ -61,7 +77,7 @@ Concepts: JSX, Using and outputting dynamic values
 
 ---
 
-### Phase 2 — Dynamic Rendering
+### Dynamic Rendering
 
 #### Step 5: Store Expenses in an Object ✔
 
@@ -107,7 +123,7 @@ Concepts: using fragments
 
 ---
 
-### Phase 3 — Interactivity & State
+### Interactivity & State
 
 #### Step 8: Move Expenses into Component State ✔
 
@@ -143,8 +159,14 @@ Concepts: managing state, outputting data list dynamically, reacting to events
 - Observe automatic UI updates
 
 ---
+<br>
 
-## COLOR THEMES
+
+## Phase 2
+
+
+
+## Color themes
 
 ![color_themes](/src/assets/tracker_color_themes.png)
 
