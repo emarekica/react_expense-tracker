@@ -1,5 +1,6 @@
 export default function ExpenseItem({item, price, date}) {
   const isLuxury = price > 50 ? "luxury" : "";
+  const formattedDate = date.toLocaleDateString();
 
   return(
     <li className={`expense-item ${isLuxury}`}>
@@ -7,7 +8,7 @@ export default function ExpenseItem({item, price, date}) {
         <span>{item}</span>
         <span>€{price}</span>
       </div>
-      <span>{date}</span>
+      <span>{formattedDate}</span>
     </li>
   );
 }

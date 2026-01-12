@@ -22,10 +22,14 @@ function App() {
   const randomExpense = {
     getRandomItem: () => items[Math.floor(Math.random() * items.length)],
     getAmount: () => Math.floor(Math.random() * 100) + 1,
-    getDate: () => new Date().toLocaleDateString(),
+    // getDate: () => new Date().toLocaleDateString(),
+    getDate: () => {
+      const start = 0;
+      const end = Date.now();
+      return new Date(start + Math.random() * (end - start));
+  },
   };
 
-  // sum = accumulator, expense = currentExpense, 0 = initial value
   const totalExpense = expenses.reduce((sum, expense) => {
     return sum + expense.price;
   }, 0);
