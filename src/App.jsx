@@ -14,6 +14,11 @@ function App() {
     getDate: () => new Date().toLocaleDateString(),
   }
 
+  // sum = accumulator, expense = currentExpense, 0 = initial value
+  const totalExpense = expenses.reduce((sum, expense) => {
+    return sum + expense.price
+  }, 0);
+
   function getRandomExpense() {
     const newExpense = {
       item: randomExpense.getRandomItem(),
@@ -25,12 +30,15 @@ function App() {
   };
 
 
+
+
   return (
     <>
       <header>
         <h2>Add random expense</h2>
         <button onClick={getRandomExpense}>+</button>
       </header>
+      <p className="total-expense">Total expense: {totalExpense}</p>
       <Card>
         {expenses.map((expense, index) => (
               <ExpenseItem key={index}
