@@ -204,7 +204,7 @@ Display the sum of all expense prices.
 ```
 <br>
 
-#### Step 2 - Format the Date in ExpenseItem
+#### Step 2 - Format the Date in ExpenseItem ✔
 
 Make dates human-readable.
 
@@ -215,7 +215,7 @@ Concepts: Separation of concerns
 - Use `toLocaleDateString`
 - Do not modify the stored data
 
-#### Step 3 - Conditional Styling Based on Price
+#### Step 3 - Conditional Styling Based on Price ✔
 
 Goal: Visually distinguish expensive items.
 
@@ -260,7 +260,7 @@ Concepts: Derived data, state-driven UI, mapping filtered arrays
 
 ## Color themes
 
-![color_themes](/src/assets/tracker_color_themes.png)
+![color_themes](/expense-tracker/src/assets/tracker_color_themes.png)
 
     #8C8C8C
     #BFBFBD

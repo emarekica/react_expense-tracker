@@ -83,6 +83,13 @@ ul {
     var(--box-shadow),
     var(--inset-box-shadow);
 
+  &.luxury {
+    --inset-box-shadow: none;
+
+    color: #BFBFBD;
+    background-color: #404040;
+  }
+
   div {
     display: flex;
     justify-content: space-between;
