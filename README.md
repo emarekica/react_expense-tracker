@@ -311,4 +311,4 @@ MUTED
 
 ## Current visual:
 
-![current_visual](/src/assets/current_visual.png)
+![current_visual](/expense-tracker/src/assets/current_visual.png)
