@@ -233,8 +233,35 @@ Concepts: Conditional rendering, logical operators in JSX
 
 - Show a message when `expenses.length === 0`
 - Hide the list when empty
-- Do not wrap everything in if statements
+- Do not wrap everything in `if` statements
 - JSX conditions should stay readable
+
+---
+
+✅ Learned:
+
+1. Small helper functions (`renderMessage()`, `renderCard()`)
+
+Keep them inside of a component if:
+- derive JSX from state
+- do not manage their own state
+-are only used by that component
+
+Extract them if:
+You extract when:
+
+- the JSX becomes large
+- the logic grows
+- you want reuse
+- it improves readability
+
+---
+
+2. Rendering in JSX
+
+       {hasExpenses ? renderCard() : renderMessage()}
+
+<br>
 
 #### Step 5 - Sort Expenses by Date
 

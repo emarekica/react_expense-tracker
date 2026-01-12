@@ -8,6 +8,7 @@ body {
   --btn-background: rgba(64, 61, 59, 0.6);
   --btn-hover: rgba(89, 85, 81, 0.6);
   --btn-active: rgba(89, 85, 81, 0.4);
+  --list-background: rgba(140, 140, 140, 0.4);
 
   font-family: "Alegreya Sans", sans-serif;
   line-height: 1.5;
@@ -61,11 +62,18 @@ header {
   }
 }
 
+.message {
+  font-size: 1.5em;
+  padding: 1em;
+  background-color: var(--list-background);
+  border-radius: 10px;
+}
+
 ul {
   list-style: none;
   padding: 0;
   width: 280px;
-  background-color: rgba(140, 140, 140, 0.4);
+  background-color: var(--list-background);
   height: 370px;
   border-radius: 10px;
   padding: 2em;
