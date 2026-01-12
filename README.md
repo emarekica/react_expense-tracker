@@ -272,6 +272,7 @@ Concepts: Immutability, array copying, derived data vs stored state
 - Refactor the date generating function (preparation for filtering later)
     - Generate and store a Date object
     - Format it only when rendering
+
 - Sort expenses by date (newest first)
 - Do not mutate state directly
 - Copy before sorting
