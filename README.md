@@ -183,7 +183,7 @@ The app will also be architecturally ready for `useEffect`, `fetch` and backend 
 
 <br>
 
-#### Step 1 — Add a Total Expenses Summary
+#### Step 1 — Add a Total Expenses Summary ✔
 
 Concepts: Using and outputting dynamic values, array methods (`reduce()`), React re-rendering on state change
 
@@ -194,7 +194,15 @@ Display the sum of all expense prices.
 
 ✅ **Learned:**
 
-- Do not store the total in state >> derive it from expenses during render
+- Do not store the total in state >> derive it from `expenses` state snapshot during render
+
+```javascript
+ // sum = accumulator, expense = currentExpense, 0 = initial value
+  const totalExpense = expenses.reduce((sum, expense) => {
+    return sum + expense.price
+  }, 0);
+```
+<br>
 
 #### Step 2 - Format the Date in ExpenseItem
 
