@@ -194,7 +194,7 @@ Display the sum of all expense prices.
 
 ✅ **Learned:**
 
-- Do not store the total in state >> derive it from `expenses` state snapshot during render
+- Derive `total` it from `expenses` state snapshot during render
 
 ```javascript
  // sum = accumulator, expense = currentExpense, 0 = initial value
@@ -225,7 +225,7 @@ Concepts: Conditional rendering, dynamic `className`
 - Use a ternary operator
 - Keep logic small and readable
 
-#### Step 4 - Empty State Handling
+#### Step 4 - Empty State Handling ✔
 
 Handle the case where no expenses exist.
 
