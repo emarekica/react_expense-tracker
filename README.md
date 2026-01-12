@@ -291,7 +291,7 @@ Concepts: Derived data, state-driven UI, mapping filtered arrays
 
 ## Color themes
 
-![color_themes](/expense-tracker/src/assets/tracker_color_themes.png)
+![color_themes](/expense-tracker/src/assets/tracker_color_themes.jpg)
 
     #8C8C8C
     #BFBFBD
@@ -311,4 +311,4 @@ MUTED
 
 ## Current visual:
 
-![current_visual](/expense-tracker/src/assets/current_visual.png)
+![current_visual](/expense-tracker/src/assets/current_visual.jpg)
