@@ -288,6 +288,35 @@ Concepts: Derived data, state-driven UI, mapping filtered arrays
 - Filtering should not permanently remove data
 - Do not mutate expenses
 
+---
+
+1. There is no filter at the beginning.
+
+2. When at least 2 Expense items are generated - the filter appears.
+
+3. All the information generated in the expense items should be (temporarily) stored in `expenses` to be used in filter in that one session.
+Filtering/sorting should not mutate `expenses`, but derive a view of it >>> `visibleExpenses` are derived result
+
+4. When the filter appears, it is a drop-down that shows these options: no filter, sort by date (newest / oldest), filter by ascending price, filter by descending price.
+
+5. When there is hard-reset, everything comms back to 1.
+
+
+
+      expenses
+        ↓
+      (optional copy)
+        ↓
+      (optional sort)
+        ↓
+      displayedExpenses
+        ↓
+      .map() → ExpenseItem
+
+run during render, depend on `expenses` and `selectedFilter`
+
+---
+
 
 ## Color themes
 

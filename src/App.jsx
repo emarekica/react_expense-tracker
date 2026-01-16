@@ -2,11 +2,19 @@ import { useState } from "react";
 
 import Card from "./components/Card.jsx";
 import ExpenseItem from "./components/ExpenseItem.jsx";
+import Filter from "./components/Filter.jsx";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
+  // ❗️
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [filterValue, setFilterValue] = useState("");
 
+  // ❗️
   const hasExpenses = expenses.length > 0;
+  const filteredExpenses = filterValue
+  ? expenses.filter(e => e.item === filterValue)
+  : expenses;
 
   const items = [
     "Book",
@@ -27,9 +35,10 @@ function App() {
       const start = 0;
       const end = Date.now();
       return new Date(start + Math.random() * (end - start));
-  },
+    },
   };
 
+  // ❗️
   const totalExpense = expenses.reduce((sum, expense) => {
     return sum + expense.price;
   }, 0);
@@ -47,7 +56,8 @@ function App() {
   function renderCard() {
     return (
       <Card>
-        {expenses.map((expense, index) => (
+        {/* ❗️ */}
+        {filteredExpenses.map((expense, index) => (
           <ExpenseItem
             key={index}
             item={expense.item}
@@ -60,15 +70,28 @@ function App() {
   }
 
   function renderMessage() {
+    return <p className="message">You have no expenses yet!</p>;
+  }
+
+  function renderFilter() {
     return (
-      <p className="message">You have no expenses yet!</p>
+      <>
+        {/* // ❗️ */}
+        <button type="button" onClick={() => setIsFilterOpen((open) => !open)}></button>
+        {isFilterOpen && (
+          <Filter value={filterValue} onChange={setFilterValue} />
+        )}
+      </>
     );
   }
 
   function renderExpenseSum() {
     return (
-      <p className="total-expense">Total expense: {totalExpense}</p>
-    )
+      <>
+        <p className="total-expense">Total expense: {totalExpense}</p>
+        {expenses.length >= 2 && renderFilter()}
+      </>
+    );
   }
 
   return (
