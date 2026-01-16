@@ -1,5 +1,4 @@
-export default function Filter() {
-  return function StatusFilter({ value, onChange }) {
+export default function Filter({value, onChange}) {
     return (
       <select
         // ❗️
@@ -16,4 +15,3 @@ export default function Filter() {
       </select>
     );
   };
-}
