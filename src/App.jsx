@@ -4,25 +4,19 @@ import Card from "./components/Card.jsx";
 import ExpenseItem from "./components/ExpenseItem.jsx";
 import Filter from "./components/Filter.jsx";
 
+import { getSortedExpenses, getTotalExpense } from "./utils/expense_utils.js";
+
 import { items } from "./data.jsx";
 
 function App() {
-
   // STATES
   const [expenses, setExpenses] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filterValue, setFilterValue] = useState("newest");
 
-  // FILTER
-  const filterConfig = {
-    newest: { label: "Newest", sortFn: (a, b) => b.date - a.date },
-    oldest: { label: "Oldest", sortFn: (a, b) => a.date - b.date },
-    ascending: { label: "Ascending price", sortFn: (a, b) => a.price - b.price },
-    descending: { label: "Descending price", sortFn: (a, b) => b.price - a.price },
-  };
-
-  // EXPENSES
   const hasExpenses = expenses.length > 0;
+  const totalExpense = getTotalExpense(expenses);
+  const sortedExpenses = getSortedExpenses(expenses, filterValue);
 
   const randomExpense = {
     getRandomItem: () => items[Math.floor(Math.random() * items.length)],
@@ -34,14 +28,6 @@ function App() {
       return new Date(start + Math.random() * (end - start));
     },
   };
-
-  const totalExpense = expenses.reduce((sum, expense) => {
-    return sum + expense.price;
-  }, 0);
-
-  const sortedExpenses = [...expenses]; // avoids mutating 'expenses' array
-  const sortFunction = filterConfig[filterValue]?.sortFn;
-  if (sortFunction) sortedExpenses.sort(sortFunction);
 
   function getRandomExpense() {
     const newExpense = {
@@ -57,7 +43,6 @@ function App() {
   function renderCard() {
     return (
       <Card>
-        {/* ❗️ */}
         {sortedExpenses.map((expense, index) => (
           <ExpenseItem
             key={index}
