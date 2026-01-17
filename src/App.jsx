@@ -4,28 +4,20 @@ import Card from "./components/Card.jsx";
 import ExpenseItem from "./components/ExpenseItem.jsx";
 import Filter from "./components/Filter.jsx";
 
+import { items } from "./data.jsx";
+
 function App() {
   const [expenses, setExpenses] = useState([]);
-  // ❗️
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [filterValue, setFilterValue] = useState("");
+
+  // states for Filter
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const [sortOrder, setSortOrder] = useState("newest");
 
   // ❗️
   const hasExpenses = expenses.length > 0;
-  const filteredExpenses = filterValue
-  ? expenses.filter(e => e.item === filterValue)
+  const filteredExpenses = sortOrder
+  ? expenses.filter(e => e.item === sortOrder)
   : expenses;
-
-  const items = [
-    "Book",
-    "Notebook",
-    "Pen",
-    "Color pencil",
-    "Eraser",
-    "Bookmark",
-    "Marker",
-    "Ruler",
-  ];
 
   const randomExpense = {
     getRandomItem: () => items[Math.floor(Math.random() * items.length)],
@@ -77,9 +69,9 @@ function App() {
     return (
       <>
         {/* // ❗️ */}
-        <button type="button" onClick={() => setIsFilterOpen((open) => !open)}></button>
-        {isFilterOpen && (
-          <Filter value={filterValue} onChange={setFilterValue} />
+        <button type="button" onClick={() => setIsSortOpen((open) => !open)}></button>
+        {isSortOpen && (
+          <Filter value={sortOrder} onChange={setSortOrder} />
         )}
       </>
     );
