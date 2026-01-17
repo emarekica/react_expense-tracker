@@ -62,6 +62,8 @@ header {
   }
 }
 
+/* TO DO: add :before with filter icon on a .filter button; add hover/active */
+
 .message {
   font-size: 1.5em;
   padding: 1em;
