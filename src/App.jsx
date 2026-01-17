@@ -13,7 +13,7 @@ function App() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filterValue, setFilterValue] = useState("newest");
 
-  // FILTER ❗️
+  // FILTER
   const filterConfig = {
     newest: { label: "Newest", sortFn: (a, b) => b.date - a.date },
     oldest: { label: "Oldest", sortFn: (a, b) => a.date - b.date },
@@ -35,7 +35,6 @@ function App() {
     },
   };
 
-  // ❗️
   const totalExpense = expenses.reduce((sum, expense) => {
     return sum + expense.price;
   }, 0);
@@ -78,7 +77,6 @@ function App() {
   function renderFilter() {
     return (
       <>
-        {/* // ❗️ */}
         <button
           className="filter"
           onClick={() => setIsFilterOpen((open) => !open)}
