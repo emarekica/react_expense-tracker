@@ -7,17 +7,22 @@ import Filter from "./components/Filter.jsx";
 import { items } from "./data.jsx";
 
 function App() {
+
+  // STATES
   const [expenses, setExpenses] = useState([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [filterValue, setFilterValue] = useState("newest");
 
-  // states for Filter
-  const [isSortOpen, setIsSortOpen] = useState(false);
-  const [sortOrder, setSortOrder] = useState("newest");
+  // FILTER ❗️
+  const filterConfig = {
+    newest: { label: "Newest", sortFn: (a, b) => b.date - a.date },
+    oldest: { label: "Oldest", sortFn: (a, b) => a.date - b.date },
+    ascending: { label: "Ascending price", sortFn: (a, b) => a.price - b.price },
+    descending: { label: "Descending price", sortFn: (a, b) => b.price - a.price },
+  };
 
-  // ❗️
+  // EXPENSES
   const hasExpenses = expenses.length > 0;
-  const filteredExpenses = sortOrder
-  ? expenses.filter(e => e.item === sortOrder)
-  : expenses;
 
   const randomExpense = {
     getRandomItem: () => items[Math.floor(Math.random() * items.length)],
@@ -35,6 +40,10 @@ function App() {
     return sum + expense.price;
   }, 0);
 
+  const sortedExpenses = [...expenses]; // avoids mutating 'expenses' array
+  const sortFunction = filterConfig[filterValue]?.sortFn;
+  if (sortFunction) sortedExpenses.sort(sortFunction);
+
   function getRandomExpense() {
     const newExpense = {
       item: randomExpense.getRandomItem(),
@@ -45,11 +54,12 @@ function App() {
     setExpenses((prevExpenses) => [newExpense, ...prevExpenses]);
   }
 
+  // HELPERS
   function renderCard() {
     return (
       <Card>
         {/* ❗️ */}
-        {filteredExpenses.map((expense, index) => (
+        {sortedExpenses.map((expense, index) => (
           <ExpenseItem
             key={index}
             item={expense.item}
@@ -69,9 +79,13 @@ function App() {
     return (
       <>
         {/* // ❗️ */}
-        <button type="button" onClick={() => setIsSortOpen((open) => !open)}></button>
-        {isSortOpen && (
-          <Filter value={sortOrder} onChange={setSortOrder} />
+        <button
+          className="filter"
+          onClick={() => setIsFilterOpen((open) => !open)}
+          aria-label="Open filter menu">
+          </button>
+        {isFilterOpen && (
+          <Filter value={filterValue} onChange={setFilterValue} />
         )}
       </>
     );
