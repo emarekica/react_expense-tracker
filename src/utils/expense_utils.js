@@ -9,6 +9,6 @@ export function getSortedExpenses(expenses, filterValue) {
   return sorted;
 }
 
-  export function getTotalExpense(expenses) {
-    return expenses.reduce((sum, expense) => sum + expense.price, 0);
+export function getTotalExpense(expenses) {
+  return expenses.reduce((sum, expense) => sum + expense.price, 0);
 }

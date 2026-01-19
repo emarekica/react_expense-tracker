@@ -6,15 +6,15 @@ import Filter from "./components/Filter.jsx";
 
 import { getSortedExpenses, getTotalExpense } from "./utils/expense_utils.js";
 
-import { items } from "./data.jsx";
+import { items } from "./data.js";
 
 function App() {
-  // STATES
   const [expenses, setExpenses] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filterValue, setFilterValue] = useState("newest");
 
   const hasExpenses = expenses.length > 0;
+
   const totalExpense = getTotalExpense(expenses);
   const sortedExpenses = getSortedExpenses(expenses, filterValue);
 
