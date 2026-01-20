@@ -6,14 +6,18 @@ The frontend is developed with React, focusing on component-based UI, state mana
 
 The backend will be implemented using PHP with a MySQL database, providing a simple REST-style API for persisting and retrieving expense data.
 
+QA part demonstrates manual and automated testing.
+
 The project is developed incrementally in phases, with features added as new concepts are learned on both the frontend and backend.
 
 ## Content
 
 1. [Phase 1](#phase-1)
 2. [Phase 2](#phase-2)
-3. [Color themes](#color-themes)
-4. [Current visual](#current-visual)
+3. [QA](#qa)
+4. [Accessibility](#accessibility---to-do)
+5. [Color themes](#color-themes)
+6. [Current visual](#current-visual)
 
 <br>
 
@@ -253,6 +257,112 @@ Filtering/sorting should not mutate `expenses`, but derive a view of it >>> `vis
 Run during render, depend on `expenses` and `selectedFilter`
 
 ---
+
+<br>
+
+## QA
+
+### QA Focus
+
+- Manual testing: Test plan, test cases, exploratory notes
+- Automated testing: Playwright (TypeScript) E2E tests with Page Object Model (POM)
+- API testing: Mock REST API endpoints for functional validation
+- CI integration: GitHub Actions workflow to automatically run all tests
+- Reporting: HTML reports, screenshots, videos, and trace capture for failed tests
+
+### How to Run Tests Locally
+
+1. Install dependencies: `npm install`
+2. Start app: `npm start`
+3. Run tests: `npx playwright test`
+4. View HTML report: `npx playwright show-report`
+
+### Tools Used
+
+- React
+- Playwright (UI + API testing)
+- TypeScript
+- GitHub Actions (CI)
+- Node.js / npm
+
+### Manual Testing
+
+#### Test Plan
+
+- Scope: Functional, validation, exploratory testing
+- Browsers: Chrome, Firefox, WebKit
+- Environment: Local dev server (`http://localhost:3000`)
+- Entry criteria: App running locally with sample data
+- Exit criteria: All critical functional tests passed, no major bugs
+
+
+#### Test Cases (examples)
+
+| ID   | Scenario                     | Steps                                  | Expected Result                           |
+|------|------------------------------|----------------------------------------|-------------------------------------------|
+| TC-01| Add valid expense             | Enter name, amount, date → Save        | Expense appears in list                    |
+| TC-02| Add expense with empty amount | Leave amount empty → Save              | Validation error shown                     |
+| TC-03| Add expense negative amount   | Enter -20 → Save                        | Validation error shown                     |
+| TC-04| Edit expense                  | Change amount of existing expense      | Updated value reflected in list           |
+| TC-05| Delete expense                | Delete an existing expense             | Expense removed from list                  |
+
+#### Exploratory Notes (examples)
+
+- Adding decimal values > 2 places breaks UI layout
+- Deleting expense sometimes does not immediately refresh list
+- Date validation does not prevent past dates
+- Long names overflow layout
+- Ideas: Add 100 expenses rapidly to test performance; Accessibility tests (tab navigation, screen reader)
+
+---
+
+### Automated Testing
+
+#### Playwright E2E Tests
+
+- Tests cover Add, Edit, Delete, and Validation scenarios
+- Page Object Model used for maintainable, reusable code
+- Screenshots, videos, and trace capture on failure
+
+---
+
+### API Testing
+
+- GET /expenses → Checks that all expenses are retrieved
+- POST /expenses → Validates creation of a new expense
+- POST /expenses with invalid data → Validates error messages for required fields, negative amounts, and invalid dates
+
+Uses Playwright request API to simulate backend calls
+
+---
+
+### CI Integration
+
+- GitHub Actions workflow runs all tests on push or pull_request
+- Generates HTML reports accessible via workflow artifacts
+- Screenshot, video, and trace capture on failed tests
+
+Workflow file: `.github/workflows/tests.yml`
+
+
+---
+
+### Commands
+
+Install Playwright (first time only):
+
+        npx playwright install
+
+
+Run all tests:
+
+        npx playwright test
+
+
+View HTML report:
+
+        npx playwright show-report
+
 
 <br>
 

@@ -28,3 +28,9 @@ dist-ssr
 *.sw?
 
 README_learned.md
+
+# temporary
+.github
+tests
+playwright.config.ts
+tsconfig.json
