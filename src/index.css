@@ -41,7 +41,7 @@ header {
 
   button {
     height: var(--btn-size);
-    width: var(--btn-size);
+    min-width: var(--btn-size);
     font-size: var(--btn-font);
     font-weight: 400;
     color: rgb(242, 241, 240);
