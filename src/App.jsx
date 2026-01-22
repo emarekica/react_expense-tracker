@@ -69,7 +69,9 @@ function App() {
           aria-expanded={isFilterOpen}
           aria-controls="expense-filter"
           type="button">
-            <img src={filterIcon} alt="Filter icon"/>
+            {!isFilterOpen && (
+              <img src={filterIcon} alt="Filter icon"/>
+            )}
         </button>
 
         {isFilterOpen && (
