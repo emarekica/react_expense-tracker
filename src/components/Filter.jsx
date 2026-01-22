@@ -4,7 +4,8 @@ export default function Filter({ value, onChange }) {
       defaultValue={value}
       onChange={(e) => onChange(e.target.value)}
       name="filters"
-      id="expense-filter">
+      id="expense-filter"
+      aria-label="Sort expenses">
       <option value="newest">Newest</option>
       <option value="oldest">Oldest</option>
       <option value="ascending">Ascending price</option>

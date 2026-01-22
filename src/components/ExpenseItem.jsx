@@ -6,9 +6,11 @@ export default function ExpenseItem({item, price, date}) {
     <li className={`expense-item ${isLuxury}`}>
       <div>
         <span>{item}</span>
-        <span>€{price}</span>
+        <data>€{price}</data>
       </div>
-      <span>{formattedDate}</span>
+      <time dateTime={date.toISOString()}>
+        {formattedDate}
+      </time>
     </li>
   );
 }

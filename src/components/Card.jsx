@@ -1,5 +1,9 @@
-export default function Card({children}) {
+export default function Card({children, ...props}) {
   return(
-    <ul>{children}</ul>
+    <ul
+      {...props}
+      aria label="expense-list">
+        {children}
+    </ul>
   )
 }
