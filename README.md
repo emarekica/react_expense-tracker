@@ -393,4 +393,4 @@ MUTED
 
 ## Current visual:
 
-![current_visual](/expense-tracker/src/assets/current_visual.jpg)
+![current_visual](/expense-tracker/src/assets/current_visual.png)
