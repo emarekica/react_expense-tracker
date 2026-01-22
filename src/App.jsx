@@ -42,7 +42,7 @@ function App() {
   // HELPERS
   function renderCard() {
     return (
-      <Card>
+      <Card aria-live="polite">
         {sortedExpenses.map((expense, index) => (
           <ExpenseItem
             key={index}
@@ -56,7 +56,7 @@ function App() {
   }
 
   function renderMessage() {
-    return <p className="message">You have no expenses yet!</p>;
+    return <p className="message" role="status">You have no expenses yet!</p>;
   }
 
   function renderFilter() {
@@ -65,8 +65,12 @@ function App() {
         <button
           className="filter"
           onClick={() => setIsFilterOpen((open) => !open)}
-          aria-label="Open filter menu">
-          </button>
+          aria-label="Toggle expense filter"
+          aria-expanded={isFilterOpen}
+          aria-controls="expense-filter"
+          type="button">
+        </button>
+
         {isFilterOpen && (
           <Filter value={filterValue} onChange={setFilterValue} />
         )}
@@ -77,7 +81,7 @@ function App() {
   function renderExpenseSum() {
     return (
       <>
-        <p className="total-expense">Total expense: {totalExpense}</p>
+        <p className="total-expense" aria-live="polite">Total expense: {totalExpense}</p>
         {expenses.length >= 2 && renderFilter()}
       </>
     );
@@ -86,12 +90,17 @@ function App() {
   return (
     <>
       <header>
-        <h2>Random expense calculator</h2>
-        <button onClick={getRandomExpense}>+</button>
+        <h1>Random expense calculator</h1>
+        <button
+          onClick={getRandomExpense}
+          aria-label="Add a random expense"
+          type="button">+
+        </button>
       </header>
-      {hasExpenses && renderExpenseSum()}
-
-      {hasExpenses ? renderCard() : renderMessage()}
+      <main>
+        {hasExpenses && renderExpenseSum()}
+        {hasExpenses ? renderCard() : renderMessage()}
+      </main>
     </>
   );
 }

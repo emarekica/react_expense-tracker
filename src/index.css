@@ -32,9 +32,12 @@ header {
   justify-content: center;
   width: 100%;
 
-  h2,
+  h1 {
+    font-size: 32px;
+  }
+
+  h1,
   button {
-    text-transform: uppercase;
     font-family: "Alegreya Sans SC", sans-serif;
     font-weight: 500;
   }
@@ -62,6 +65,12 @@ header {
   }
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* TO DO: add :before with filter icon on a .filter button; add hover/active */
 
 .message {
@@ -86,17 +95,13 @@ ul {
   background-color: rgba(89, 85, 81, 0.2);
   padding: 1em;
   border-radius: 10px;
-  -webkit-box-shadow:
-    var(--box-shadow),
-    var(--inset-box-shadow);
-  box-shadow:
-    var(--box-shadow),
-    var(--inset-box-shadow);
+  -webkit-box-shadow: var(--box-shadow), var(--inset-box-shadow);
+  box-shadow: var(--box-shadow), var(--inset-box-shadow);
 
   &.luxury {
     --inset-box-shadow: none;
 
-    color: #BFBFBD;
+    color: #bfbfbd;
     background-color: #404040;
   }
 

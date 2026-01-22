@@ -366,7 +366,7 @@ View HTML report:
 
 <br>
 
-## Accessibility - TO DO
+## Accessibility ✔
 
 Go through all the components and adjust for A11y standards.
 
