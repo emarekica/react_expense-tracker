@@ -5,7 +5,7 @@ import ExpenseItem from "./components/ExpenseItem.jsx";
 import Filter from "./components/Filter.jsx";
 
 import { getSortedExpenses, getTotalExpense } from "./utils/expense_utils.js";
-
+import filterIcon from "./assets/filter_icon.png";
 import { items } from "./data.js";
 
 function App() {
@@ -69,6 +69,7 @@ function App() {
           aria-expanded={isFilterOpen}
           aria-controls="expense-filter"
           type="button">
+            <img src={filterIcon} alt="Filter icon"/>
         </button>
 
         {isFilterOpen && (
@@ -80,10 +81,10 @@ function App() {
 
   function renderExpenseSum() {
     return (
-      <>
+      <div className="total-expense">
         <p className="total-expense" aria-live="polite">Total expense: {totalExpense}</p>
         {expenses.length >= 2 && renderFilter()}
-      </>
+      </div>
     );
   }
 

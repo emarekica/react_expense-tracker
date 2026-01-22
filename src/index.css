@@ -71,13 +71,28 @@ main {
   align-items: center;
 }
 
-/* TO DO: add :before with filter icon on a .filter button; add hover/active */
-
 .message {
   font-size: 1.5em;
   padding: 1em;
   background-color: var(--list-background);
   border-radius: 10px;
+}
+
+.total-expense {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button.filter {
+    border: none;
+    background-color: transparent;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 5px 10px 0;
+    }
+  }
 }
 
 ul {
