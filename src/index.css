@@ -82,8 +82,21 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  position: relative;
+
+  .total-expense {
+    font-size: 1.1em;
+  }
+
+  .total-expense span {
+    font-weight: 700;
+    margin-left: 10px;
+  }
 
   button.filter {
+    position: absolute;
+    right: 0;
     border: none;
     background-color: transparent;
 

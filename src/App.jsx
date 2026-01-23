@@ -88,7 +88,10 @@ function App() {
   function renderExpenseSum() {
     return (
       <div className="total-expense-wrapper">
-        <p className="total-expense" aria-live="polite">Total expense: {totalExpense}</p>
+        <p className="total-expense" aria-live="polite">
+          Total expense:
+          <span>{totalExpense}</span>
+        </p>
         {expenses.length >= 2 && renderFilter()}
       </div>
     );
