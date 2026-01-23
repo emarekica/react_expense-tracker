@@ -14,10 +14,11 @@ The project is developed incrementally in phases, with features added as new con
 
 1. [Phase 1](#phase-1)
 2. [Phase 2](#phase-2)
-3. [QA](#qa)
-4. [Accessibility](#accessibility---to-do)
-5. [Color themes](#color-themes)
-6. [Current visual](#current-visual)
+3. [Phase 3](#phase-3)
+4. [QA](#qa)
+5. [Accessibility](#accessibility)
+6. [Color themes](#color-themes)
+7. [Current visual](#current-visual)
 
 <br>
 
@@ -257,6 +258,18 @@ Filtering/sorting should not mutate `expenses`, but derive a view of it >>> `vis
 Run during render, depend on `expenses` and `selectedFilter`
 
 ---
+
+<br>
+
+---
+
+## Phase 3
+
+Toggle filter button and filter select element.
+
+Build a custom select.
+
+
 
 <br>
 

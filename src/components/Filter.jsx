@@ -1,11 +1,15 @@
-export default function Filter({ value, onChange }) {
+export default function Filter({ value, onChange, isOpen, onToggle }) {
   return (
     <select
-      defaultValue={value}
-      onChange={(e) => onChange(e.target.value)}
+      value={value}
+      onChange={(e) => {
+        onChange(e.target.value);
+        onToggle(false);
+      }}
       name="filters"
       id="expense-filter"
       aria-label="Sort expenses"
+      style={{ display: isOpen ? 'inline-block' : 'none' }}
     >
       <option value="newest">Newest</option>
       <option value="oldest">Oldest</option>

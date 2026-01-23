@@ -72,13 +72,13 @@ main {
 }
 
 .message {
-  font-size: 1.5em;
+  font-size: 1.2em;
   padding: 1em;
   background-color: var(--list-background);
   border-radius: 10px;
 }
 
-.total-expense {
+.total-expense-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +88,6 @@ main {
     background-color: transparent;
 
     img {
-      width: 20px;
       height: 20px;
       margin: 5px 10px 0;
     }

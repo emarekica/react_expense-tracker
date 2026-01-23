@@ -70,12 +70,16 @@ function App() {
           aria-controls="expense-filter"
           type="button">
             {!isFilterOpen && (
-              <img src={filterIcon} alt="Filter icon"/>
+              <img src={filterIcon} alt="Filter icon" aria-hidden="true"/>
             )}
         </button>
 
         {isFilterOpen && (
-          <Filter value={filterValue} onChange={setFilterValue} />
+          <Filter
+            value={filterValue}
+            onChange={setFilterValue}
+            isOpen={isFilterOpen}
+            onToggle={setIsFilterOpen}/>
         )}
       </>
     );
@@ -83,7 +87,7 @@ function App() {
 
   function renderExpenseSum() {
     return (
-      <div className="total-expense">
+      <div className="total-expense-wrapper">
         <p className="total-expense" aria-live="polite">Total expense: {totalExpense}</p>
         {expenses.length >= 2 && renderFilter()}
       </div>
