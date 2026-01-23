@@ -81,12 +81,17 @@ main {
 .total-expense-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
+
+  &:has(button.filter),
+  &:has(select) {
+    justify-content: space-between;
+  }
 
   .total-expense {
     font-size: 1.1em;
-    margin-left: 30px;
+    margin-left: 20px;
   }
 
   .total-expense span {

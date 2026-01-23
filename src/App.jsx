@@ -56,30 +56,35 @@ function App() {
   }
 
   function renderMessage() {
-    return <p className="message" role="status">You have no expenses yet!</p>;
+    return (
+      <p className="message" role="status">
+        You have no expenses yet!
+      </p>
+    );
   }
 
   function renderFilter() {
     return (
       <>
-        <button
-          className="filter"
-          onClick={() => setIsFilterOpen((open) => !open)}
-          aria-label="Toggle expense filter"
-          aria-expanded={isFilterOpen}
-          aria-controls="expense-filter"
-          type="button">
-            {!isFilterOpen && (
-              <img src={filterIcon} alt="Filter icon" aria-hidden="true"/>
-            )}
-        </button>
+        {!isFilterOpen && (
+          <button
+            className="filter"
+            onClick={() => setIsFilterOpen((open) => !open)}
+            aria-label="Toggle expense filter"
+            aria-expanded={isFilterOpen}
+            aria-controls="expense-filter"
+            type="button">
+            <img src={filterIcon} alt="Filter icon" aria-hidden="true" />
+          </button>
+        )}
 
         {isFilterOpen && (
           <Filter
             value={filterValue}
             onChange={setFilterValue}
             isOpen={isFilterOpen}
-            onToggle={setIsFilterOpen}/>
+            onToggle={setIsFilterOpen}
+          />
         )}
       </>
     );
@@ -104,7 +109,9 @@ function App() {
         <button
           onClick={getRandomExpense}
           aria-label="Add a random expense"
-          type="button">+
+          type="button"
+        >
+          +
         </button>
       </header>
       <main>
