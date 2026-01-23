@@ -81,12 +81,12 @@ main {
 .total-expense-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
-  position: relative;
 
   .total-expense {
     font-size: 1.1em;
+    margin-left: 30px;
   }
 
   .total-expense span {
@@ -94,9 +94,12 @@ main {
     margin-left: 10px;
   }
 
+  button.filter,
+  select {
+    margin-right: 20px;
+  }
+
   button.filter {
-    position: absolute;
-    right: 0;
     border: none;
     background-color: transparent;
 
@@ -104,6 +107,17 @@ main {
       height: 20px;
       margin: 5px 10px 0;
     }
+  }
+
+  select {
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    background-color: var(--list-background);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-size: 1.1em;
   }
 }
 
@@ -116,6 +130,8 @@ ul {
   border-radius: 10px;
   padding: 2em;
   overflow: auto;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 .expense-item {
@@ -126,10 +142,10 @@ ul {
   box-shadow: var(--box-shadow), var(--inset-box-shadow);
 
   &.luxury {
-    --inset-box-shadow: none;
-
     color: #bfbfbd;
     background-color: #404040;
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
   }
 
   div {

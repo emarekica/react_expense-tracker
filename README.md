@@ -265,9 +265,20 @@ Run during render, depend on `expenses` and `selectedFilter`
 
 ## Phase 3
 
-Toggle filter button and filter select element.
+### Toggle filter button and filter select element.
 
-Build a custom select.
+### Build a custom select element
+
+Goal: total style control inside and outside, but make it accessible
+
+- build a hybrid `<select>` element
+- use native `<select>` when any assistive tech is used
+- use custom styled select element version when mouse is used
+
+Requirements for custom `<select>`:
+
+
+
 
 
 
