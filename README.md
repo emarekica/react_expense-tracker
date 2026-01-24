@@ -267,111 +267,139 @@ Run during render, depend on `expenses` and `selectedFilter`
 
  - Toggle filter button and filter select element. ✔
 
+ - Implement tests
+
 
 <br>
 
 ## QA
 
-### QA Focus
-
-- Manual testing: Test plan, test cases, exploratory notes
-- Automated testing: Playwright (TypeScript) E2E tests with Page Object Model (POM)
-- API testing: Mock REST API endpoints for functional validation
-- CI integration: GitHub Actions workflow to automatically run all tests
-- Reporting: HTML reports, screenshots, videos, and trace capture for failed tests
-
-### How to Run Tests Locally
-
-1. Install dependencies: `npm install`
-2. Start app: `npm start`
-3. Run tests: `npx playwright test`
-4. View HTML report: `npx playwright show-report`
-
-### Tools Used
+### Tools used
 
 - React
-- Playwright (UI + API testing)
-- TypeScript
+- JavaScript
+- Node.js
+- Jest (test runner)
+- React Testing Library (component testing)
 - GitHub Actions (CI)
-- Node.js / npm
 
-### Manual Testing
+### QA focus
 
-#### Test Plan
+Manual testing
+  - Test plan
+  - Test cases
+  - Exploratory testing notes
 
-- Scope: Functional, validation, exploratory testing
-- Browsers: Chrome, Firefox, WebKit
-- Environment: Local dev server (`http://localhost:3000`)
-- Entry criteria: App running locally with sample data
-- Exit criteria: All critical functional tests passed, no major bugs
+Automated testing (frontend)
+  - Unit tests for business logic
+  - Component tests for UI behavior and accessibility
+  - Implemented using Jest and React Testing Library (JavaScript)
 
+Future testing scope (planned)
+  - End-to-end (E2E) testing once application flows grow
+  - API testing after backend integration
+  - CI automation enhancements
 
-#### Test Cases (examples)
+CI integration
+  - GitHub Actions workflow to automatically run automated tests
 
-| ID   | Scenario                     | Steps                                  | Expected Result                           |
-|------|------------------------------|----------------------------------------|-------------------------------------------|
-| TC-01| Add valid expense             | Enter name, amount, date → Save        | Expense appears in list                    |
-| TC-02| Add expense with empty amount | Leave amount empty → Save              | Validation error shown                     |
-| TC-03| Add expense negative amount   | Enter -20 → Save                        | Validation error shown                     |
-| TC-04| Edit expense                  | Change amount of existing expense      | Updated value reflected in list           |
-| TC-05| Delete expense                | Delete an existing expense             | Expense removed from list                  |
-
-#### Exploratory Notes (examples)
-
-- Adding decimal values > 2 places breaks UI layout
-- Deleting expense sometimes does not immediately refresh list
-- Date validation does not prevent past dates
-- Long names overflow layout
-- Ideas: Add 100 expenses rapidly to test performance; Accessibility tests (tab navigation, screen reader)
+Reporting
+  - Console-based test results from Jest
+  - CI logs for pass/fail visibility
 
 ---
+
+### Run tests locally
+
+Install independencies
+
+        npm install
+
+Run automated tests
+
+        npm test
+
+### Manual testing plan
+
+Scope
+- Functional testing
+- Exploratory testing
+- Accessibility checks
+
+Browsers: Chrome, Firefox, Safari
+
+Environment: `http://localhost:3000`
+
+Entry Criteria
+- Application runs locally
+- Sample data can be generated via UI
+
+Exit Criteria
+- All critical functional tests pass
+- No open high-severity defects
+
+### Exploratory Notes (Examples)
+
+- Random data generation may affect test reproducibility
+- Long expense names may affect layout
+- Rapidly adding expenses may impact UI responsiveness
+
+Accessibility checks:
+- Keyboard navigation
+- Screen reader announcements
+- ARIA labels and roles
 
 ### Automated Testing
 
-#### Playwright E2E Tests
+Unit Tests
+- Validate pure business logic (e.g. total expense calculation, sorting)
+- Fast, deterministic, no UI rendering
+Located under `tests/automation/unit`
 
-- Tests cover Add, Edit, Delete, and Validation scenarios
-- Page Object Model used for maintainable, reusable code
-- Screenshots, videos, and trace capture on failure
+Component Tests
+- Simulate real user interactions
+- Validate UI behavior and accessibility
+- Implemented with React Testing Library
+- Located under `tests/automation/components`
 
----
+### Future Testing (Planned)
 
-### API Testing
+#### End-to-End (E2E) Testing
 
-- GET /expenses → Checks that all expenses are retrieved
-- POST /expenses → Validates creation of a new expense
-- POST /expenses with invalid data → Validates error messages for required fields, negative amounts, and invalid dates
+- To be added once application complexity increases
+- Will validate complete user journeys
+- May use Playwright with JavaScript
 
-Uses Playwright request API to simulate backend calls
+#### API Testing
 
----
+- To be introduced after backend integration
+- Will validate REST endpoints using mocked or real APIs
 
 ### CI Integration
 
-- GitHub Actions workflow runs all tests on push or pull_request
-- Generates HTML reports accessible via workflow artifacts
-- Screenshot, video, and trace capture on failed tests
+GitHub Actions workflow runs automated tests on:
+
+      push
+
+      pull_request
+
+Failing tests block the pipeline.
+Test results visible in GitHub Actions logs.
 
 Workflow file: `.github/workflows/tests.yml`
 
-
----
-
-### Commands
-
-Install Playwright (first time only):
-
-        npx playwright install
+### Test cases (examples)
 
 
-Run all tests:
+| ID    | Scenario               | Steps                              | Expected Result               |
+| ----- | ---------------------- | ---------------------------------- | ----------------------------- |
+| TC-01 | Add expense            | Click “+” button                   | Expense appears in list       |
+| TC-02 | Empty state            | Load app without adding expenses   | Empty state message displayed |
+| TC-03 | Filter visibility      | Add two expenses                   | Filter button becomes visible |
+| TC-04 | Sort expenses          | Open filter and select sort option | Expenses reorder correctly    |
+| TC-05 | Close filter on select | Select sorting option              | Filter closes automatically   |
 
-        npx playwright test
 
-
-View HTML report:
-
-        npx playwright show-report
 
 
 <br>
