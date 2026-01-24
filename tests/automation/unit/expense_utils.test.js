@@ -8,7 +8,7 @@
  * These tests validate pure business logic without rendering UI.
  */
 
-import { getSortedExpenses, getTotalExpense } from "../../../src/utils/expense_utils";
+import { getSortedExpenses, getTotalExpense } from "../../../src/utils/expense_utils.js";
 
 describe("getTotalExpense", () => {
   test("returns 0 for empty expense list", () => {
