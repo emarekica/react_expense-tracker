@@ -3,6 +3,10 @@
  * Focused on user-visible outcomes, not implementation details.
  */
 
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import App from "../../../src/App";
+
 test("total expense updates after adding expenses", async () => {
   render(<App />);
   const addButton = screen.getByRole("button", { name: /add a random expense/i });
