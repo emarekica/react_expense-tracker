@@ -352,8 +352,10 @@ Accessibility checks:
 ### Automated Testing
 
 Unit Tests
+
 - Validate pure business logic (e.g. total expense calculation, sorting)
 - Fast, deterministic, no UI rendering
+
 Located under `tests/automation/unit`
 
 Component Tests
@@ -390,7 +392,6 @@ Workflow file: `.github/workflows/tests.yml`
 
 ### Test cases (examples)
 
-
 | ID    | Scenario               | Steps                              | Expected Result               |
 | ----- | ---------------------- | ---------------------------------- | ----------------------------- |
 | TC-01 | Add expense            | Click “+” button                   | Expense appears in list       |
@@ -398,8 +399,6 @@ Workflow file: `.github/workflows/tests.yml`
 | TC-03 | Filter visibility      | Add two expenses                   | Filter button becomes visible |
 | TC-04 | Sort expenses          | Open filter and select sort option | Expenses reorder correctly    |
 | TC-05 | Close filter on select | Select sorting option              | Filter closes automatically   |
-
-
 
 
 <br>

@@ -2,8 +2,8 @@
 
 Example:
 
-Date: 2026-01-20
-Session duration: 50 minutes
+Date: /
+Session duration: /
 
 ## Observations
 - Randomized values make test reproduction difficult
