@@ -7,41 +7,48 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../../../src/App";
 
-test("total expense updates after adding expenses", async () => {
-  render(<App />);
-  const addButton = screen.getByRole("button", { name: /add a random expense/i });
+describe("App component", () => {
+  beforeEach(() => {
+    render(<App />);
+  });
 
-  await userEvent.click(addButton);
-  await userEvent.click(addButton);
+  test("total expense updates after adding expenses", async () => {
+    const addButton = screen.getByRole("button", {
+      name: /add a random expense/i,
+    });
 
-  expect(
-    screen.getByText(/total expense:/i)
-  ).toBeInTheDocument();
-});
+    await userEvent.click(addButton);
+    await userEvent.click(addButton);
 
-test("filter closes automatically after selecting option", async () => {
-  render(<App />);
-  const addButton = screen.getByRole("button", { name: /add a random expense/i });
+    expect(screen.getByText(/total expense:/i)).toBeInTheDocument();
+  });
 
-  await userEvent.click(addButton);
-  await userEvent.click(addButton);
+  test("filter closes automatically after selecting option", async () => {
+    const addButton = screen.getByRole("button", {
+      name: /add a random expense/i,
+    });
 
-  const filterButton = screen.getByLabelText(/toggle expense filter/i);
-  await userEvent.click(filterButton);
+    await userEvent.click(addButton);
+    await userEvent.click(addButton);
 
-  const select = screen.getByRole("combobox");
-  await userEvent.selectOptions(select, "ascending");
+    const filterButton = screen.getByLabelText(/toggle expense filter/i);
+    await userEvent.click(filterButton);
 
-  // Filter select should disappear after selection
-  expect(screen.queryByRole("combobox")).toBeNull();
-});
+    const select = screen.getByRole("combobox");
+    await userEvent.selectOptions(select, "ascending");
 
-test("expenses are rendered as list items", async () => {
-  render(<App />);
-  const addButton = screen.getByRole("button", { name: /add a random expense/i });
+    // Filter select should disappear after selection
+    expect(screen.queryByRole("combobox")).toBeNull();
+  });
 
-  await userEvent.click(addButton);
+  test("expenses are rendered as list items", async () => {
+    const addButton = screen.getByRole("button", {
+      name: /add a random expense/i,
+    });
 
-  const items = screen.getAllByRole("listitem");
-  expect(items.length).toBeGreaterThan(0);
+    await userEvent.click(addButton);
+
+    const items = screen.getAllByRole("listitem");
+    expect(items.length).toBeGreaterThan(0);
+  });
 });
